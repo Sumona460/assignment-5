@@ -1,3 +1,4 @@
+// sign in btn
 const signBtn = document.getElementById('signBtn');
 
 signBtn.addEventListener('click', function (){
@@ -10,6 +11,7 @@ const defaultPassword = 'admin123';
 if(username === defaultUser && password === defaultPassword){
     alert('Signin Successful');
 
+    // new windows
     window.location.href = 'dashboard.html';
 }
 else{
