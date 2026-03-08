@@ -69,47 +69,49 @@ const displayIssue = (issues) => {
 
 loadIssues();
 
-  
-
-            
-
 
 // 50 issues length section
-const loadLength = ()=> {
+const loadLength = () => {
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
-    .then((json) => displayLength(json.data));
+    .then(json => displayLength(json.data));
 };
 
-const displayLength = (card) => {
-  
-    const issuesLength = document.getElementById('issues-length');
-    issuesLength.innerHTML = "";
+const displayLength = (issues) => {
+    // left side
+    const left = document.querySelector('#issues-left h2');
+    left.textContent = `${issues.length} Issues`;
 
-    const lengthDiv = document.createElement('div');
-    lengthDiv.innerHTML = `<div class="flex justify-between w-full">
-    <div class="flex gap-3 items-center">
-      <div class="bg-[#ECE4FF] w-[50px] h-[50px] rounded-full flex justify-center items-center">
-        <img src="assets/Aperture.png" alt="">
-      </div>
-      <div>
-        <h2 class="text-xl font-semibold">${card.length} Issues</h2>
-        <p class="text-[#64748B]">Track and manage your project issues</p>
-      </div>
-    </div>
+    // right side
+    const open = document.querySelector('#issues-right span:nth-child(1)');
+    const closed = document.querySelector('#issues-right span:nth-child(2)');
 
-    <div class="flex gap-4 text-sm items-top justify-end ">
-      <span class="flex items-center gap-1">
-        <span class="w-2 h-2 bg-green-500 rounded-full"></span>Open</span>
+    // API data to open/closed count 
+    const openCount = issues.filter(i => i.status === 'open').length;
+    const closedCount = issues.filter(i => i.status === 'closed').length;
 
-        <span class="flex items-center gap-1">
-        <span class="w-2 h-2 bg-purple-500 rounded-full"></span>Open</span>
-
-    </div>
-   
-     </div>
-`;
-    issuesLength.append(lengthDiv);
+    open.innerHTML = `<span class="w-2 h-2 bg-green-500 rounded-full"></span> ${openCount} Open`;
+    closed.innerHTML = `<span class="w-2 h-2 bg-purple-500 rounded-full"></span> ${closedCount} Closed`;
 };
 
- loadLength();
+loadLength();
+
+// cards
+
+let allIssues = [];
+
+// all issue fetch
+const loadCard = ()=>{
+    fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+    .then(res => res.json())
+    .then(json => {
+       allIssues = json.data;
+       displayCard(allIssues);
+    });
+};
+
+// display card 
+const displayCard = (issues) => {
+     const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = "";
+}
