@@ -28,7 +28,6 @@ else{
 
 
 // all, open & close btn
-
 const loadIssues = () => {
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
@@ -41,17 +40,38 @@ const displayIssue = (issues) => {
     btnContainer.innerHTML = "";
 
     const btnDiv = document.createElement('div');
+    btnDiv.classList.add('issue-filter-container'); // container class
 
     btnDiv.innerHTML = `
-        <button class="btn btn-primary">All</button>
-        <button class="btn btn-outline">Open</button>
-        <button class="btn btn-outline">Closed</button>
+        <button class="filter-btn btn btn-primary">All</button>
+        <button class="filter-btn btn btn-outline">Open</button>
+        <button class="filter-btn btn btn-outline">Closed</button>
     `;
 
     btnContainer.appendChild(btnDiv);
+
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function(){
+
+            buttons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline');
+            });
+
+            this.classList.remove('btn-outline');
+            this.classList.add('btn-primary');
+
+        });
+    });
 };
 
 loadIssues();
+
+  
+
+            
 
 
 // 50 issues length section
