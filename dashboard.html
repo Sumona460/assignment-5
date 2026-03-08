@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+
+<!-- tailwind + daisyui -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- icons -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- css -->
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body class="bg-base-200">
+<section class="bg-base-100">
+  <nav class="flex justify-between items-center w-11/12 mx-auto min-h-20 ">
+    <div class="flex items-center  gap-1">
+        <div>
+        <img src="assets/github-logo_25231 1.png" alt="">
+    </div>
+  <div>
+<h2 class="text-2xl font-semibold">GitHub Issues Tracker</h2>
+  </div> 
+    </div>
+ <div class="search flex gap-2 ">
+  <div>
+    <label class="input validator join-item">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      
+      <input type="text" placeholder="Search Issues" required />
+    </label>
+    <div class="validator-hint hidden">Enter valid  issue</div>
+  </div>
+  <button class="btn btn-primary join-item">New issue</button>
+</div>    
+</nav>
+</section>
+
+<section class="container mx-auto mt-14 flex items-center min-h-[88px] bg-base-100 rounded-lg">
+
+  <div id="btn-container" class="flex gap-4 p-6 ">
+    
+  </div>
+</section>
+
+<section class="bg-base-100 min-h-[88px] container mx-auto mt-4 rounded-lg flex items-center">
+  <div id="issues-length" class="flex justify-between items-center p-4">
+  
+  </div>
+</section>
+
+
+<section id="card-container" class="grid grid-cols-1 lg:grid-cols-4 gap-2  mx-auto w-11/12 mt-3">
+
+  <div class="p-4 space-y-4 bg-base-100 border-t-4 border-[#00A96E] rounded-md items-center">
+    <div class="flex justify-between items-center w-64">
+      <div>
+      <img src="assets/Open-Status.png" alt="">
+    </div>
+    <div>
+      <button class="btn btn-soft btn-error rounded-full">HIGH</button>
+    </div>
+    </div>
+    
+
+    <div class="">
+      <h2 class="font-semibold">card title</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    
+    <div>
+      <button class="btn btn-soft btn-error rounded-full border-red-500"><i class="fa-solid fa-bug"></i>BUG</button>
+    <button class="btn btn-soft btn-warning rounded-full border-yellow-500"><i class="fa-regular fa-life-ring"></i>HELP WANTED</button>
+    </div>
+    <hr class="text-[#64748B] opacity-15">
+
+    <div class="text-[#64748B]">
+      <p>#1 by jhn_deo</p>
+      <span>1/15/2026</span>
+    </div>
+
+   
+  </div>
+
+  
+</section>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
